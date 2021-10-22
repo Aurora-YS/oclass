@@ -1,0 +1,106 @@
+<<OClass 사이트 구성하기 - UI 디자인_카테고리 정의서.txt>>
+oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
+내부 신규 폴더 css, data, js, img, db
+
+[members] 회원가입 -> 로그인 -> 회원수정
+
+1) 회원가입
+{css}
+ - css/common.css
+ - css/member.css
+
+{js}
+ - js/member_form.js 
+
+{view 구조}
+ - header.php
+ - footer.php   
+ - member_form.php => js/member_form.js =>member_insert.php(DB에 각 입력상자의 value값을 넣는 작업을 진행)
+ - member_check_id.php(아이디 중복 체크)
+
+
+2) 로그인
+{css}
+ - login.css
+
+{js}
+ - login.js
+
+{view 구조}
+ - login_form.php => js/login.js => login_ok.php
+
+ ※ 로그인 전 상태와 로그인 후 상태의 헤더 공간의 UI가 변경된다.
+
+3) 로그아웃
+ - logout.php
+
+
+4) 회원정보 수정(아이디만 수정 불가)
+{css}
+ - css/member.css(기존의 스타일 시트에 구성)
+
+
+{js}
+ - js/member_form.js(기존 스크립트 파일에 구성)
+
+
+{view}
+ - member_modify_form.php =>  js/member_form.js =submit()=> member_modify.php
+
+
+
+
+[message] 메시지 보내기(내부 회원간 커뮤니케이션 : 메시지보내기, 답글달기)
+ - 회사에서 내부 보고서, 부서간 협업 메일 보내기
+{DB - sql}
+ - db/message.sql
+ (send_id:보낸사람 / rv_id:받는사람 / subject:메시지 제목 / content:메시지 내용 / regist_day:메시지 전송 시각)
+ <https://dung-beetle.tistory.com/72 : 문자형 데이터의 크기 비교>
+
+
+{css}
+ - css/message.css
+
+{js}
+ - js/message.js
+
+{view}
+ - (메시지 작성 양식) message_form.php => js/message.js =submit()=> message_insert.php => message_box.php
+ - (메시지 리스트) message_box.php
+ - (메시지 상세보기 - 각 메시지 제목 클릭시 해당하는 내용을 보여준다.) message_view.php
+ - (메시지 답장보내기) message_response_form.php
+ - (메시지 삭제하기) message_delete.php
+
+ - (메시지 진입간 로그인 상태 확인) message_log_chk.php
+
+
+
+
+[board] 게시판 구성하기
+{DB - sql}
+ - db/board.sql
+ (id:작성자 아이디 / name:작성자 이름 / subject : 게시글 제목 / content : 게시글 내용 / regist_day : 작성일 / hit : 조회수 / file_name : 업로드된 자료의 실제 이름 /    file_type : 업로드된 자료의 파일 형식 / file_copied : 서버에 저장된 파일 이름 / notice : 공지게시글 또는 일반게시글 구분(1 또는 0))
+
+{css}
+- css/board.css
+
+{js}
+- js/board.js
+
+{view}
+- (게시글 작성 양식)board_form.php => js/board.js =submit()=> board_insert.php
+- (게시판 리스트) board_list.php : 비로그인 회원 입장 가능
+- (게시판 상세보기) board_view.php : 비로그인 회원 입장 가능
+
+- (게시판 작성 진입간 로그인 상태 확인) borad_log_chk.php
+
+
+[product] 제품 리스트
+
+[FAQ - 과제] 자주하는 질문(관리자만 등록)
+
+[[관리자 페이지]] 전체 회원 통제, 게시판 통제, 제품 리스트 통제
+    [신규 회원가입]
+        <전체 통제 가능한 관리자>
+        - admin / 기술책임 
+        - DB에서 직접 찾아서 수정이라는 위치를 클릭 -> 레벨만 9 ~> 1로 변경
