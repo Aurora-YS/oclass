@@ -71,6 +71,10 @@
                         </div>
                     </li>
                     <!--공지/일반 여부 추가-->
+
+<?php
+    if($userlevel == 1){
+?>                    
                     <li>
                         <div class="label_box">
                             <label for="notice1">공지여부</label>
@@ -82,6 +86,9 @@
                             </select>
                         </div>
                     </li>
+<?php                    
+    }
+?>                
                 </ul>
                 <ul class="buttons">
                     <li><button type="button" onclick="check_input();">작성 완료</button></li>
@@ -95,7 +102,7 @@
         <?php include "./footer.php"?>
     </footer>
         
-
+    
     <script src="./js/board.js"></script>
 </body>
 </html>

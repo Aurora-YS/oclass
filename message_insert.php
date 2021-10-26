@@ -10,11 +10,11 @@
     $regist_day = date("Y-m-d (H:i)");
 
     /*
-        var_dump($send_id);
-        var_dump($rv_id);
-        var_dump($subject);
-        var_dump($content);
-        var_dump($regist_day);
+    var_dump($send_id);
+    var_dump($rv_id);
+    var_dump($subject);
+    var_dump($content);
+    var_dump($regist_day);
     */
 
     include "./db_con.php";
@@ -30,9 +30,11 @@
     if($num_record){  //받는 사람의 아이디가 존재할 경우
         $sql_m = "insert into message (send_id, rv_id, subject, content, regist_day)";
         $sql_m .= "values('$send_id', '$rv_id', '$subject', '$content', '$regist_day')";
-        // var_dump($sql_m);
+        //var_dump($sql_m);
 
-        //'$content' => '대충 세번째 '부아아아아앙'' => str_replace 사용하여 특수문자 기호로 변환해줌
+        //'$content' =>  '심청전 '아버지가 앞을 못봐서~''  (sql에서 인식 불가)
+        //'심청전 ‘아버지가 앞을 못봐서~’' 으로 변경이 요구됨  (sql에서 인식 가능)
+
 
         mysqli_query($con, $sql_m);
     }else{  //받는 사람의 아이디가 존재하지 않을 경우

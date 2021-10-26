@@ -14,12 +14,13 @@
     //(메시지로부터 유입)http://localhost/oclass/login_form.php?spot=message
     //(게시판으로부터 유입)http://localhost/oclass/login_form.php?spot=board
 
+
     if(isset($_GET["spot"])){
         $spot = $_GET["spot"];
     }else{
         $spot = "";
     }
-    // var_dump($spot); 
+    var_dump($spot); 
 ?>
 
 

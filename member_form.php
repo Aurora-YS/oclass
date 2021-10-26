@@ -33,7 +33,7 @@
                         <div class="input_box">
                             <input type="text" name="id" id="userid">
                         </div>
-                        <!-- 중복체크 member_check_id.php -->
+                        <!--중복체크 member_check_id.php -->
                         <div class="add_btn">
                             <button type="button" onclick="check_id();">중복체크</button>
                         </div>
@@ -101,5 +101,10 @@
     <!--사용자가 입력한 입력값에 대한 유효성 검사를 진행할 스크립트 문서-->
     <script src="./js/member_form.js"></script>
 
+    <!--
+        [method]
+        post : 무언가를 작성한 상태에서 그 값들을 우편물처럼 보냄(작성하기, 수정하기)
+        get : 무언가를 가져온다. 미리 설정된 값들을 가져다가 쓰겠다는 의미(http 통신 중 URL 정보창으로부터 정보값을 가져올 때 사용)
+    -->
 </body>
 </html>

@@ -1,7 +1,5 @@
-/** login.js **/
-
+//login.js
 function check_input(){
-
     if(!document.login_form.id.value){
         alert("아이디를 입력하세요.");
         document.login_form.id.focus();
@@ -13,5 +11,7 @@ function check_input(){
         return;
     }
     document.login_form.submit();
-
 }
+
+
+

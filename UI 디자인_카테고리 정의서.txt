@@ -14,7 +14,7 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
 
 {view 구조}
  - header.php
- - footer.php   
+ - footer.php	
  - member_form.php => js/member_form.js =>member_insert.php(DB에 각 입력상자의 value값을 넣는 작업을 진행)
  - member_check_id.php(아이디 중복 체크)
 
@@ -79,23 +79,31 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
 [board] 게시판 구성하기
 {DB - sql}
  - db/board.sql
- (id:작성자 아이디 / name:작성자 이름 / subject : 게시글 제목 / content : 게시글 내용 / regist_day : 작성일 / hit : 조회수 / file_name : 업로드된 자료의 실제 이름 /    file_type : 업로드된 자료의 파일 형식 / file_copied : 서버에 저장된 파일 이름 / notice : 공지게시글 또는 일반게시글 구분(1 또는 0))
+ (id : 작성자 아이디 / name : 작성자 이름 / subject : 게시글 제목 / content : 게시글 내용 / regist_day : 작성일 / hit : 조회수 / file_name : 업로드된 자료의 실제 이름 / 	file_type : 업로드된 자료의 파일 형식 / file_copied : 서버에 저장된 파일 이름 / notice : 공지게시글 또는 일반게시글 구분(1 또는 0))
 
 {css}
-- css/board.css
+ - css/board.css
 
 {js}
-- js/board.js
+ - js/board.js
 
 {view}
-- (게시글 작성 양식)board_form.php => js/board.js =submit()=> board_insert.php
-- (게시판 리스트) board_list.php : 비로그인 회원 입장 가능
-- (게시판 상세보기) board_view.php : 비로그인 회원 입장 가능
+ - (게시판 작성 양식) board_form.php => js/board.js =submit()=> board_insert.php : 로그인 회원만 입장 가능
+ - (게시판 리스트) board_list.php : 비로그인 회원 입장 가능
+ - (게시판 상세보기) board_view.php : 비로그인 회원 입장 가능
+ - (게시판 상세보기 - 다운로드 기능만적용) board_download.php
 
-- (게시판 작성 진입간 로그인 상태 확인) borad_log_chk.php
+ - (게시판 상세보기 - 수정하기) board_modify_form.php ==> js/board.js =submit()=> board_modify.php(기존 데이터를 갱신)
+ - (게시판 상세보기 - 삭제하기) board_delete.php
+
+
+ - (게시판 작성 진입간 로그인 상태 확인) board_log_chk.php
+
 
 
 [product] 제품 리스트
+{DB - sql}
+- db/product.sql
 
 [FAQ - 과제] 자주하는 질문(관리자만 등록)
 
@@ -104,3 +112,4 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
         <전체 통제 가능한 관리자>
         - admin / 기술책임 
         - DB에서 직접 찾아서 수정이라는 위치를 클릭 -> 레벨만 9 ~> 1로 변경
+

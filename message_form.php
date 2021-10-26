@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="./css/message.css">
 </head>
 <body>
-
     <header>
         <?php include "./header.php"?>
     </header>
-    <!-- $userid, $username, $userlevel, $userpoint 값들 존재 -->
+    <!--$userid, $username, $userlevel, $userpoint 값들 존재-->
 
-    <?php include "./message_log_chk.php"?>
+    <?php include "./message_log_chk.php"?> 
+
 
     <section>
         <div class="subpage">
@@ -46,7 +46,7 @@
                         </li>
                         <li>
                             <div class="label_box">
-                                <label for="rv_id">받는 사람(아이디)</label>
+                                <label for="rv_id1">받는 사람(아이디)</label>
                             </div>
                             <div class="input_box">
                                 <input type="text" name="rv_id" id="rv_id1">
@@ -54,7 +54,7 @@
                         </li>
                         <li>
                             <div class="label_box">
-                                <label for="subject">제목</label>
+                                <label for="subject1">제목</label>
                             </div>
                             <div class="input_box">
                                 <input type="text" name="subject" id="subject1">
@@ -62,7 +62,7 @@
                         </li>
                         <li>
                             <div class="label_box">
-                                <label for="content">내용</label>
+                                <label for="content1">내용</label>
                             </div>
                             <div class="input_box">
                                 <textarea name="content" id="content1"></textarea>
@@ -73,8 +73,6 @@
                 </div>
             </form>
         </div>
-
-
     </section>
 
     <footer>

@@ -1,3 +1,4 @@
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/09743b710b.js" crossorigin="anonymous"></script>
 
@@ -47,28 +48,28 @@
         </div>
         <ul id="top_menu">
 
-            <?php
-                //로그인 안 된 상태에서만 보여줄 메뉴(세션에 등록 없는 상태)
-                if(!$userid){
-            ?>
-                <li><a href="./member_form.php">회원가입</a></li>
-                <li><a href="./login_form.php">로그인</a></li>
-            <?php
-                }else{
-                    $logged = $username."(".$userid.") 님[Lv : ".$userlevel."/ Pt : ".$userpoint."]";
-            ?>
-                <li><span><?=$logged?></span></li>
-                <li><a href="./member_modify_form.php">정보수정</a></li>
-                <li><a href="./logout.php">로그아웃</a></li>
-            <?php
-                }
-                //레벨 1인 경우만 관리자로 인식하여 웹 사이트 관리자 페이지로 입장 가능하도록 구성
-                if($userlevel == 1){
-            ?>
-                <li><a href="./admin.php">관리자</a></li>
-            <?php
-                }
-            ?>
+<?php
+    //로그인 안 된 상태에서만 보여줄 메뉴(세션에 등록 없는 상태)
+    if(!$userid){
+?>
+            <li><a href="./member_form.php">회원가입</a></li>
+            <li><a href="./login_form.php">로그인</a></li>
+<?php
+    }else{
+        $logged = $username."(".$userid.") 님[Lv : ".$userlevel."/ Pt : ".$userpoint."]";
+?>
+            <li><span><?=$logged?></span></li>
+            <li><a href="./member_modify_form.php">정보수정</a></li>
+            <li><a href="./logout.php">로그아웃</a></li>
+<?php
+    }
+    //레벨 1인 경우만 관리자로 인식하여 웹 사이트 관리자 페이지로 입장 가능하도록 구성
+    if($userlevel == 1){
+?>
+        <li><a href="./admin.php">관리자</a></li>
+<?php
+    }
+?>
         </ul>
     </div>
 </div>

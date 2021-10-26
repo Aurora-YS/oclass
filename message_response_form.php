@@ -16,7 +16,6 @@
 
     <?php include "./message_log_chk.php"?>
 
-
     <section>
         <div class="subpage">
             <div class="frame">
@@ -49,13 +48,14 @@
             //내용 "-----Original Message-----"를 표기
             $subject = "RE : ".$subject;  //RE : 메시지 제목
             $content = "\n\n\n -----Original Message----- \n".$content;  //  "\n" : 줄바꿈 정규식
+            //$content = str_replace("\n", "<br>", $content);
 
 
             //상대방의 이름을 가져오기(from members)
             $result2 = mysqli_query($con, "select name from members where id='$send_id'");
             $record = mysqli_fetch_array($result2);
             $send_name = $record["name"];
-            // var_dump($send_name);  //상대방의 이름
+            var_dump($send_name);  //상대방의 이름
 ?>            
 
 
@@ -101,7 +101,7 @@
                             </div>
                         </li>
                     </ul>
-                    <button type="button" class="send_btn" onclick="check_input();">메시지 보내기</button>
+                    <button type="button" class="send_btn" onclick="check_input();">답장 보내기</button>
                 </div>
             </form>
         </div>

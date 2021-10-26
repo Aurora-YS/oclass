@@ -39,10 +39,10 @@
     //var_dump($pass);
     //var_dump($name);
 
-    //이메일 aaa@naver.com  =>  aaa, naver.com
+    //이메일 abc@gmail.com  =>  abc, gmail.com
     //explode("특정문자", 문자열을 포함한 변수명 또는 대상) : 특정문자를 기준으로 분리시켜서 배열로 저장
     $email = explode("@", $row["email"]);
-    //var_dump($email);  //array(2) { [0]=> string(3) "aaa" [1]=> string(9) "naver.com" }  ==>  ["aaa", "naver.com"]
+    //var_dump($email);  //array(2) { [0]=> string(3) "abc" [1]=> string(9) "gmail.com" }  ==>  ["abc", "gmail.com"]
     $email1 = $email[0];
     $email2 = $email[1];
 
