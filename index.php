@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./slick/slick.css">
     <link rel="stylesheet" href="./slick/slick-theme.css">
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/pop.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -22,7 +23,21 @@
         <?php include "./footer.php"?>
     </footer> 
 
+    <div id="dark" class="active"></div>
+    <div id="popup" class="active">
+        <div class="close">×</div>
+        <div class="pop_cont">
+            <img src="./img/products_img/home_banner.jpg" alt="">
+            <h3>관리자 : admin / 1111</h3>
+            <h3>회원1 : aaa / 1234</h3>
+        </div>
+        <div class="pop_btn">
+            <button type="button" onclick="todayClosePop();">하루동안 열리지 않기</button>
+        </div>
+    </div>
+
     <script src="./slick/slick.js"></script>
+    <script src="./js/pop.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

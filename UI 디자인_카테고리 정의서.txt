@@ -180,6 +180,18 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
 
 
 
+ [메인 페이지 팝업창]
+{css}
+- css/pop.css
+
+{js}
+- js/pop.js
+
+ {view 구성}
+ - index.php
+
+
+
 
 [[관리자 페이지]] 전체 회원 통제, 게시판 통제, 제품 리스트 통제
     [신규 회원가입]
