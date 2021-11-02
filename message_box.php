@@ -122,11 +122,20 @@
     //상세페이지 삭제 후, 해당하는 리스트에 항목이 존재하지 않을 경우
     if($start == $total_record){
         $new_page = $page - 1;  //2 - 1 = 1
-        echo ("
-            <script>
-                location.href = './message_box.php?mode=$mode&page=$new_page';
-            </script>
-        ");
+
+        if($new_page == 0){
+            echo ("
+                <script>
+                    location.href = './message_box.php?mode=$mode&page=1';
+                </script>
+            ");
+        }else{
+            echo ("
+                <script>
+                    location.href = './message_box.php?mode=$mode&page=$new_page';
+                </script>
+            ");
+        }
     }
 
 
@@ -159,6 +168,7 @@
 
         $num = $row["num"];
         $subject = $row["subject"];
+        $readed = $row["readed"];
         
         if($mode == "send"){  //보내 메시지 리스트에서는 받은 사람이 필요
             $msg_id = $row["rv_id"];
@@ -171,7 +181,17 @@
 
                     <li>
                         <span class="field_1"><?=$number?></span>
+<?php
+        if($readed == "0"){
+?>
+                        <span class="field_2"><a href="./message_view.php?mode=<?=$mode?>&num=<?=$num?>&page=<?=$page?>"><b><?=$subject?></b></a></span>
+<?php
+        }else{
+?>
                         <span class="field_2"><a href="./message_view.php?mode=<?=$mode?>&num=<?=$num?>&page=<?=$page?>"><?=$subject?></a></span>
+<?php
+        }
+?>
                         <span class="field_3"><?=$msg_id?></span>
                         <span class="field_4"><?=$regist_day?></span>
                     </li>

@@ -64,7 +64,7 @@
 <?php
     }
     //레벨 1인 경우만 관리자로 인식하여 웹 사이트 관리자 페이지로 입장 가능하도록 구성
-    if($userlevel == 1){
+    if($userlevel == 1 && $userid == "admin"){
 ?>
         <li><a href="./admin.php">관리자</a></li>
 <?php
@@ -80,8 +80,28 @@
         </div>
         <div id="menu_bar">
             <ul>
+                <li><a href="./products_list.php">프로그램</a></li>
+<?php
+    include "./db_con.php";
+    $sql = "select * from message where rv_id='$userid' and readed='0'";  //조건을 추가 읽음 / 안 읽음
+    $result = mysqli_query($con, $sql);
+    $total_record = mysqli_num_rows($result);
+    if($total_record){
+?>
+                <li>
+                    <a href="./message_box.php?mode=rv">받은 메시지
+                        <span> - <?=$total_record?></span>
+                    </a>
+                </li>
+<?php
+    }else{
+?>
                 <li><a href="./message_form.php">메시지 보내기</a></li>
+<?php
+    }
+?>
                 <li><a href="./board_list.php">게시판</a></li>
+                <li><a href="./faq_list.php">FAQ</a></li>
             </ul>
         </div>
     </div>

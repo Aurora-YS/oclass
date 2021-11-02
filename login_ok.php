@@ -1,15 +1,18 @@
 <?php
-    //(메시지로부터 유입)http://localhost/oclass/login_form.php?spot=message
-    //(게시판으로부터 유입)http://localhost/oclass/login_form.php?spot=board
+    //(메시지로부터 유입)http://localhost/oclass/login_ok.php?spot=message
+    //(게시판으로부터 유입)http://localhost/oclass/login_ok.php?spot=board
+    //(프로그램으로부터 유입)http://localhost/oclass/login_ok.php?spot=products
     if(isset($_GET["spot"])){
         $spot = $_GET["spot"];
     }else{
         $spot = "";
     }
-    var_dump($spot);
-
-
-
+    //var_dump($spot);
+    if(isset($_GET["pdNum"])){
+        $pdNum = $_GET["pdNum"];
+    }else{
+        $pdNum = "";
+    }
 
 
     $id = $_POST["id"];
@@ -83,6 +86,18 @@
                 echo ("
                     <script>
                         location.href='./board_form.php';
+                    </script>
+                ");
+            }elseif($spot == "products"){
+                echo ("
+                    <script>
+                        location.href='./products_form.php';
+                    </script>
+                ");
+            }elseif($spot == "productsFav"){
+                echo ("
+                    <script>
+                        location.href='./products_view.php?num=$pdNum';
                     </script>
                 ");
             }

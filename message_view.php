@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="./css/message.css">
 </head>
 <body>
+
+<?php
+    //http://localhost/oclass/message_view.php?mode=send&num=33&page=2
+    $mode = $_GET["mode"];  //send 또는 rv
+    $num = $_GET["num"];  //DB에서 등록된 num 값을 가져온다.
+    $page = $_GET["page"];  //상세 페이지로 들어오기 직전의 리스트 페이지의 페이지 번호를 알고 있음. 
+    
+    include "./db_con.php";
+
+
+    $readed = "1";  //안읽음("0") -> 읽음("1") 변경
+    $sql = "update message set readed='$readed' where num='$num'";
+    mysqli_query($con, $sql);
+    mysqli_close($con);
+?>
     <header>
         <?php include "./header.php"?>
     </header>
@@ -28,12 +43,7 @@
 
         <div id="message_box">
 <?php
-            //http://localhost/oclass/message_view.php?mode=send&num=33&page=2
-            $mode = $_GET["mode"];  //send 또는 rv
-            $num = $_GET["num"];  //DB에서 등록된 num 값을 가져온다.
-            $page = $_GET["page"];  //상세 페이지로 들어오기 직전의 리스트 페이지의 페이지 번호를 알고 있음. 
-            
-            include "./db_con.php";
+
 
             $sql = "select * from message where num='$num'";
             $result = mysqli_query($con, $sql);
@@ -107,6 +117,9 @@
 
 
     </section>
+
+
+
 
 
     <footer>

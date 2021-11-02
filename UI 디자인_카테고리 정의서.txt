@@ -103,9 +103,83 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
 
 [product] 제품 리스트
 {DB - sql}
-- db/product.sql
+ - db/product.sql (
+     id : 상품 등록자 아이디 / 
+     name : 상품 등록자 이름 / 
+     title : 상품 제목 / 
+     sub : 상품 부제 /
+     content : 상품 소개 내용
+     price : 상품 가격 /
+     fav : 좋아요 횟수 /
+     hit : 상품 조회수 /
+     regist_day : 상품 최초 등록일 /
+     file_name : 상품 이미지 이름 /
+     file_type : 상품 이미지 형식(jpg, jpeg, png, gif 제한 가능) / 
+     file_copied : 실제 DB에 저장될 이름 및 형식
+     )
+{css}
+ - css/products.css
+
+{js}
+ - js/products.js
+ - js/products_view.js
+ - js/products_search.js
+
+{view 구성}
+ - (상품등록) products_form.php ==> js/products.js =submit()=> products_insert.php
+ - (상품리스트) products_list.php
+ - (상품상세페이지) products_view.php =좋아요 클릭시 ajax로 연동(js/products_view.js)=> products_fav.php (페이지가 재로딩되는 부분을 막음)
+ - (메인화면 또는 상품 리스트(products_list.php)에서 검색시 결과 리스트) => products_search.js ==> products_search_list.php 
+
+[product - 리뷰 파트]
+{DB - sql}
+ - db/review.sql(
+    num	: 리뷰의 고유 넘버 (자동생성)
+    id : 리뷰를 작성한 고객 또는 구매자 아이디
+    name : 리뷰를 작성한 고객 또는 구매자 이름
+    pd_num : 리뷰를 한 대상 상품의 번호(from products) - (URL) ...?num=8
+    score : 리뷰 별점 점수(100점 환산점수로 구성하지 말 것. 리뷰를 한 사람이 선택한 rel값을 그대로 저장 - 만약, 타공별 내부에 색상을 채운다면 100점 환산 점수가 필요)
+    content : 리뷰 내용
+    regist_day : 리뷰 작성일(연-월-일)
+  )
+
+
+    
+
+[관리자 페이지]
+{DB - sql}
+ - 없음
+
+{css}
+ - css/admin.css
+
+{js}
+ - 없음
+
+{view 구성}
+ - (관리자 화면) admin.php
+ - (관리자 화면 - 회원강퇴 기능) admin_member_delete.php
+ - (관리자 화면 - 회원정보 수정 기능) admin_member_modify.php
+ - (관리자 화면 - 게시판 관리 삭제 기능) admin_board_delete.php
+
 
 [FAQ - 과제] 자주하는 질문(관리자만 등록)
+{DB 구성}
+ - db/faq.sql
+
+{css}
+ - css/faq.css
+
+{js}
+ - js/faq.js
+
+{view 구성}
+ - (faq 작성 양식) faq_form.php ==> js/faq.js ==submit()==> faq_insert.php
+ - (faq 리스트) faq_list.php
+ - (faq 상세 페이지) faq_view.php
+
+
+
 
 [[관리자 페이지]] 전체 회원 통제, 게시판 통제, 제품 리스트 통제
     [신규 회원가입]

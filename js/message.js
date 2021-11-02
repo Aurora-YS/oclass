@@ -21,3 +21,8 @@ function check_input(){
     document.message_form.submit();  //action 의 속성값을 바라본다.
 
 }
+
+//프로그램에서 예약문의 버튼을 클릭하여 들어왔다면
+if(document.message_form.subject.value){
+    document.message_form.content.focus();
+}

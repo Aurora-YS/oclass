@@ -49,7 +49,15 @@
                                 <label for="rv_id1">받는 사람(아이디)</label>
                             </div>
                             <div class="input_box">
-                                <input type="text" name="rv_id" id="rv_id1">
+<?php
+    //http://localhost/oclass/message_form.php?num=6&id=abc
+    if(isset($_GET["id"])){
+        $id = $_GET["id"];
+    }else{
+        $id = "";
+    }
+?>
+                                <input type="text" name="rv_id" id="rv_id1" value="<?=$id?>">
                             </div>
                         </li>
                         <li>
@@ -57,7 +65,29 @@
                                 <label for="subject1">제목</label>
                             </div>
                             <div class="input_box">
+<?php
+    //http://localhost/oclass/message_form.php?num=6&id=abc
+    if(isset($_GET["num"])){
+        $num = $_GET["num"];
+    }else{
+        $num = "";
+    }
+
+    include "./db_con.php";
+    $sql = "select title from products where num='$num'";
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_array($result);
+    if($row){  //프로그램 상세 페이지 -> 예약문의로 message_form.php로 접근
+        $title = $row["title"];
+?>
+                                <input type="text" name="subject" id="subject1" value="예약 문의 : [<?=$title?>]에 관하여 문의합니다.">
+<?php
+    }else{  //상단 메뉴인 "메시지 보내기" -> message_form.php로 접근
+?>
                                 <input type="text" name="subject" id="subject1">
+<?php
+    }
+?>
                             </div>
                         </li>
                         <li>
