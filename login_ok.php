@@ -1,7 +1,8 @@
 <?php
     //(메시지로부터 유입)http://localhost/oclass/login_ok.php?spot=message
     //(게시판으로부터 유입)http://localhost/oclass/login_ok.php?spot=board
-    //(프로그램으로부터 유입)http://localhost/oclass/login_ok.php?spot=products
+    //(프로그램 작성으로부터 유입)http://localhost/oclass/login_ok.php?spot=products
+    //(프로그램 상세페이지로부터 유입)http://localhost/oclass/login_ok.php?spot=productsFav&pdNum=11
     if(isset($_GET["spot"])){
         $spot = $_GET["spot"];
     }else{

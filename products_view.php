@@ -86,7 +86,7 @@
 <?php
         }
 ?>
-                        <li><button type="button" >카트 담기</button></li>
+                        <li><button type="button" id="cart_insert" rel="<?=$num?>" data-userid="<?=$userid?>">카트 담기</button></li>
 <?php
         if($userid){
 ?>
@@ -178,6 +178,27 @@
     <footer>
         <?php include "./footer.php"?>
     </footer>
+
+
+    <div class="dark"></div>
+    <div class="popup">
+        <div class="pop_cart1">
+            <div class="pop_cont">
+                <p>카트에 해당상품이 존재합니다.</p>
+            </div>
+            <div class="pop_btn"><button>확인</button></div>
+        </div>
+        <div class="pop_cart2">
+            <div class="pop_cont">
+                <p>카트에 해당상품을 담았습니다.</p>
+            </div>
+            <div class="pop_btn">
+                <button onclick="location.href='./cart_list.php'">카트로 이동</button>
+                <button>계속 쇼핑</button>
+            </div>
+        </div>
+    </div>
+    
 
     <script src="./js/products_view.js"></script>
     

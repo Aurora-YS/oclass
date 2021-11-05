@@ -191,6 +191,21 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
  - index.php
 
 
+ [카트 구성]
+ {DB 구성}
+ - db/cart.sql
+
+ {CSS}
+ - css/cart.css
+
+ {js}
+ - js/products_view.js
+
+ {view 구성}
+ - cart_list.php
+
+
+
 
 
 [[관리자 페이지]] 전체 회원 통제, 게시판 통제, 제품 리스트 통제

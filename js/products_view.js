@@ -63,6 +63,62 @@ $(document).ready(function(){
     });
 
 
+    //"카트 담기" 버튼 클릭시
+    $("#cart_insert").click(function(){
+        var $rel = $(this).attr("rel");
+        console.log($rel);  //상품번호
+        var $dataUserId = $(this).attr("data-userid");
+        console.log($dataUserId);  //로그인 한 사람의 아이디
+
+        var $pd_ea = $(".pd_ea input").val();  //문자형 데이터
+        console.log($pd_ea);  //예약시간
+
+        //만약 소수점을 넣었다면 당장 어떻게 처리할 것인가?
+        //문자형 데이터로부터 소수점(포인트)의 위치를 찾는다. => indexOf("지정문자") ==> -1이라면 소수점이 없다는 의미 / 0이상의 값이 나왔다는 것은 소수점이 존재한다는 의미
+        if($pd_ea.indexOf(".") != -1){
+            alert("시간 단위는 정수값으로 입력하세요");
+            location.href = "./products_view.php?num="+$rel;
+        }else{
+            if($pd_ea < 1){ //예약시간 입력박스에서 1미만의 시간으로 작성후, 카트담기를 눌렀을 때
+                alert("최소 예약시간은 1시간 입니다.");
+                location.href = "./products_view.php?num="+$rel;
+            }else{  //최소 예약시간은 1 이상으로 작성후, 카트담기를 눌었을 때
+                if(!$dataUserId){  //비로그인 회원이 "카트 담기" 버튼 클릭시
+                    alert("로그인 후 이용 바랍니다.");
+                    location.href="./login_form.php?spot=productsFav&pdNum=" + $rel;
+                }else{  //로그인 회원이 "카트 담기" 버튼 클릭시
+                    $.ajax({
+                        url : "./cart_insert.php?num="+$rel+"&userid="+$dataUserId+"&pdEA="+$pd_ea,
+                        dataType : "json",
+                        type : "post",
+                        cache : false,  //캐시메모리 상에 저장하지 않음
+                        error : function(){
+                            alert("에러발생~!!");
+                        },
+                        success : function(data){
+                            console.log(data);  //["카트에 있음(없음)", "수량"]
+                            $(".dark").addClass("active");
+                            $(".popup").addClass("active");
+                            $(".popup > div").removeClass("active");
+
+                            if(data[0] == "카트에 있음"){
+                                $(".popup > div.pop_cart1").addClass("active");
+                            }else if(data[0] == "카트에 없음"){
+                                $(".popup > div.pop_cart2").addClass("active");
+                            }
+                            $(".cart_num").text(data[1]);
+                        }
+                    });
+                }
+            }
+        }
+    });
+
+    $(".pop_btn button:last-child").click(function(){
+        $(".dark").removeClass("active");
+        $(".popup").removeClass("active");
+        $(".popup > div").removeClass("active");
+    });
 });
 
 

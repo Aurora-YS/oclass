@@ -229,28 +229,13 @@
         $score = $row["score"];
         $content = $row["content"];
 
+        // if($pd_num){
         $sql1 = "select title from products where num='$pd_num'";
         $result1 = mysqli_query($con, $sql1);
         $row1 = mysqli_fetch_array($result1);
 
         $title = $row1["title"];
-        var_dump($title);
-    /*
-    for($i = 0; $i < 4; $i++){
-        $row = mysqli_data_seek($result, $i);
-        $id = $row["id"];
-        $pd_num = $row["pd_num"];
-        $score = $row["score"];
-        $content = $row["content"];
-        var_dump($content);
-
-        $sql1 = "select title from products where num='$pd_num'";
-        $result1 = mysqli_query($con, $sql1);
-        $row1 = mysqli_fetch_array($result1);
-
-        $title = $row1["title"];
-        var_dump($title);
-    */
+        // var_dump($title);
 ?>
             <div class="slide">
                 <div class="review_txt">
@@ -271,6 +256,7 @@
                 </div>
             </div>
 <?php
+        // }
     }
 ?>
 

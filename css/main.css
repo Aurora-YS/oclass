@@ -93,12 +93,8 @@
 }
 
 
-#main_banner .slick-dots li.slick-active {
-  width: 50px;
-}
-#main_banner .slick-dots li.slick-active button:before{
-  background-color: #21bda1;
-}
+#main_banner .slick-dots li.slick-active {width: 50px;}
+#main_banner .slick-dots li.slick-active button:before{background-color: #21bda1;}
 
 #main_banner .slick-prev, #main_banner .slick-next{
   z-index: 10;
@@ -558,3 +554,30 @@
   color:#259;
 }
 
+
+#review .slick-dots{
+  bottom: -30px;
+  z-index: 10;
+}
+#review .slick-dots li{
+  width: 30px;
+  height: 5px;
+  padding: 0;
+  transition: width 0.3s;
+}
+#review .slick-dots li button{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+#review .slick-dots li button:before{
+  width: 100%;
+  height: 100%;
+  content:"";
+  opacity: 1;
+  background-color: #ccc;
+}
+
+
+#review .slick-dots li.slick-active {width: 50px;}
+#review .slick-dots li.slick-active button:before{background-color: #fff;}
