@@ -2,7 +2,7 @@
     //체크 항목의 개수 파악
     if(isset($_POST["unit"])){
         $num_unit = count($_POST["unit"]);
-        var_dump($num_unit);  //체크한 상자의 개수
+        // var_dump($num_unit);  //체크한 상자의 개수
     }else{
         echo ("
             <script>
@@ -15,7 +15,7 @@
     include "./db_con.php";
     for($i=0; $i<$num_unit; $i++){
         $num_index = $_POST["unit"][$i];
-        var_dump($num_index);  //실제 DB에서 작성된 고유번호
+        // var_dump($num_index);  //실제 DB에서 작성된 고유번호
         $sql = "select * from board where num='$num_index'";
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($result);

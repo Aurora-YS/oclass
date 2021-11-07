@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var list_num = $(".faq_list").attr("data-listNum");
-    console.log(list_num);
+    // console.log(list_num);
 
     if(list_num){
         $(".list_detail").eq(list_num).find(".answer").show();
@@ -14,7 +14,7 @@ $(document).ready(function(){
 
     $(".list_detail span").click(function(){
         var $active = $(this).hasClass("active");
-        console.log($active);
+        // console.log($active);
 
         if($active == false){
             $(this).addClass("active");

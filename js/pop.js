@@ -21,13 +21,13 @@ function setCookie(name, value, expirehours){
 
     //console.log(todayDate);  //현재 시각이 10시라면 +2라는 만료일을 추가한 값인 12시로 표기
 
-    console.log(document.cookie);
+    // console.log(document.cookie);
 
     document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";";
 
-    console.log(document.cookie);
+    // console.log(document.cookie);
 
-    console.log(todayDate.toGMTString());
+    // console.log(todayDate.toGMTString());
 
     //문서의 쿠키를 설정하는 과정에서 key(name)와 16진수에 의한 쿠키 설정 value값과 동일하고 경로설정이 현재 위치이며, 설정제한시간이 쿠키의 설정 제한 시간과 동일한 값으로 구성
 
@@ -55,7 +55,7 @@ function todayClosePop(){
 
 //화면이 열리면서 브라우저 내의 쿠키 상태를 체크
 cookiedata = document.cookie;
-console.log(cookiedata);
+// console.log(cookiedata);
 if(cookiedata.indexOf("ncookie_2=done_2")<0){  //"하루동안 열리지 않기" 버튼을 클릭하기 전 상태
     document.getElementById("dark").setAttribute("class", "active");
     document.getElementById("popup").setAttribute("class", "active");
@@ -65,7 +65,7 @@ if(cookiedata.indexOf("ncookie_2=done_2")<0){  //"하루동안 열리지 않기"
     document.getElementById("dark").setAttribute("class", "");
     document.getElementById("popup").setAttribute("class", "");
     document.querySelector("body").classList.remove("overflow");
-    console.log("1번 실행");
+    // console.log("1번 실행");
 }
 
 

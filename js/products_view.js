@@ -4,8 +4,8 @@ $(document).ready(function(){
     $(".fav_icon").click(function(){
         var $rel = $(".pd_fav").attr("rel");  //11(products 테이블의 행 데이터 번호)
         var $dataUserId = $(".pd_fav").attr("data-userid");
-        console.log($rel);
-        console.log($dataUserId);
+        // console.log($rel);
+        // console.log($dataUserId);
 
         if($dataUserId.length < 1){
             alert("로그인 후 이용 바랍니다.");
@@ -20,7 +20,7 @@ $(document).ready(function(){
                     alert("error");
                 },
                 success : function(data){
-                    console.log(data); //["좋아요 선택", 1]; ==>  [좋아요를 선택한 결과를 텍스트로 가져온 값, 실제 여러사람들이 좋아요를 누른 횟수]
+                    // console.log(data); //["좋아요 선택", 1]; ==>  [좋아요를 선택한 결과를 텍스트로 가져온 값, 실제 여러사람들이 좋아요를 누른 횟수]
 
                     if(data[0] == "좋아요 선택"){
                         $(".fav_icon img").attr("src", "./img/fav_fill.svg");
@@ -66,12 +66,12 @@ $(document).ready(function(){
     //"카트 담기" 버튼 클릭시
     $("#cart_insert").click(function(){
         var $rel = $(this).attr("rel");
-        console.log($rel);  //상품번호
+        // console.log($rel);  //상품번호
         var $dataUserId = $(this).attr("data-userid");
-        console.log($dataUserId);  //로그인 한 사람의 아이디
+        // console.log($dataUserId);  //로그인 한 사람의 아이디
 
         var $pd_ea = $(".pd_ea input").val();  //문자형 데이터
-        console.log($pd_ea);  //예약시간
+        // console.log($pd_ea);  //예약시간
 
         //만약 소수점을 넣었다면 당장 어떻게 처리할 것인가?
         //문자형 데이터로부터 소수점(포인트)의 위치를 찾는다. => indexOf("지정문자") ==> -1이라면 소수점이 없다는 의미 / 0이상의 값이 나왔다는 것은 소수점이 존재한다는 의미
@@ -96,7 +96,7 @@ $(document).ready(function(){
                             alert("에러발생~!!");
                         },
                         success : function(data){
-                            console.log(data);  //["카트에 있음(없음)", "수량"]
+                            // console.log(data);  //["카트에 있음(없음)", "수량"]
                             $(".dark").addClass("active");
                             $(".popup").addClass("active");
                             $(".popup > div").removeClass("active");

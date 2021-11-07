@@ -37,7 +37,7 @@
     $upfile_size = $_FILES["upfile"]["size"];  //첨부파일의 크기
     $upfile_error = $_FILES["upfile"]["error"];  //파일의 정상 또는 비정상
 
-    var_dump($upfile_size);
+    // var_dump($upfile_size);
 
     if($upfile_name && !$upfile_error){
         $file_replace = substr_replace($upfile_name, "|", strrpos($upfile_name, "."), 1);  //substr_replace("문자열" 또는 문자열의 데이터가 담긴 변수, "지정문자", 인덱스 번호, 개수); => 문자열에서 지정문자를 인덱스 번호부터 개수만큼의 자리에 변경하여 넣겠다는 의미 
@@ -48,15 +48,15 @@
 
         $file_name = $file[0];  //파일의 형식을 제외한 이름만 저장
         $file_ext = $file[1];  //파일의 형식만을 저장  //파일의 확장자를 제한(png, jpg, jpeg, gif)
-        var_dump($file_name);
-        var_dump($file_ext);
+        // var_dump($file_name);
+        // var_dump($file_ext);
 
         //파일 확장자의 조건식을 구성
         if($file_ext == "png" || $file_ext == "jpg" || $file_ext == "jpeg" || $file_ext == "gif"){
             $new_file_name = date("Y_m_d_H_i_s");
             $copied_file_name = $new_file_name.".".$file_ext;
             $uploaded_file = $upload_dir.$copied_file_name;
-            var_dump($upfile_size);
+            // var_dump($upfile_size);
 
             if($upfile_size > 5000000){  //첨부파일의 용량이 5mb를 초과한다면 
                 echo ("

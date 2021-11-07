@@ -11,21 +11,21 @@ $(document).ready(function(){
         //각 리스트의 총액을 배열 데이터에 넣겠다는 의미
         $(".cart_detail").each(function(index){
             var $each_pd_total = Number($(this).find(".total").attr("total"));
-            console.log($each_pd_total);
+            // console.log($each_pd_total);
             $each_total.push($each_pd_total);
-            console.log($each_total);
+            // console.log($each_total);
         });
 
-        console.log("each문 종료");
+        // console.log("each문 종료");
 
         //배열 데이터에 존재하는 각 리스트의 총액을 합산다.
 
         final_total = 0;  //기존 값을 0으로 재구성 후 다시 합산시킨다.
 
         for(v of $each_total){
-            console.log(v);
+            // console.log(v);
             final_total += v;
-            console.log(final_total);
+            // console.log(final_total);
         }
         var final_total_format = final_total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
@@ -38,9 +38,9 @@ $(document).ready(function(){
     $(".minus").click(function(){
         //0이라는 숫자는 절대 나오면 안된다.
         var $input_val = Number($(this).siblings("input").val());  //최초 브라우저 로딩시 가져온 수량
-        console.log($input_val);
+        // console.log($input_val);
         var $price = Number($(this).closest("span").siblings(".price").attr("price"));
-        console.log($price);
+        // console.log($price);
 
         if($input_val < 2){
             alert("최소 예약시간은 1시간 입니다.");
@@ -50,7 +50,7 @@ $(document).ready(function(){
             $pd_total = $price * $input_val;
             
             $total_numberFormat = $pd_total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            console.log($total_numberFormat);
+            // console.log($total_numberFormat);
 
             $(this).closest("span").siblings(".total").attr("total", $pd_total).text($total_numberFormat);
 
@@ -61,16 +61,16 @@ $(document).ready(function(){
 
     $(".plus").click(function(){
         var $input_val = Number($(this).siblings("input").val());  //최초 브라우저 로딩시 가져온 수량
-        console.log($input_val);
+        // console.log($input_val);
         var $price = Number($(this).closest("span").siblings(".price").attr("price"));
-        console.log($price);
+        // console.log($price);
 
         $input_val++;
         $(this).siblings("input").val($input_val);  
         $pd_total = $price * $input_val;  //숫자형 데이터
         
         $total_numberFormat = $pd_total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        console.log($total_numberFormat);  //문자형 데이터
+        // console.log($total_numberFormat);  //문자형 데이터
 
         $(this).closest("span").siblings(".total").attr("total", $pd_total).text($total_numberFormat);
 
