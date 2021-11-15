@@ -79,11 +79,8 @@
 ?>
             </ul>
 
+            <h2>관리자 페이지 (게시글 관리)</h2>
             <form name="boardList" action="./admin_board_delete.php" method="post">
-                <div class="top">
-                    <h2 class="title">관리자 페이지(게시글 관리)</h2>
-                    <button type="submit" class="sel_del">선택 항목 삭제</button>
-                </div>
                 <ul id="board_list">
                     <li>
                         <span class="field1">선택</span>
@@ -123,65 +120,53 @@
 ?>
 
                 </ul>
+                <button type="submit" class="sel_del">선택 항목 삭제(게시판)</button>
             </form>
 
 
-            <form name="productsList" action="./admin_products_delete.php" method="POST">
-                <div class="top">
-                    <h2 class="title">관리자 페이지(프로그램 관리)</h2>
-                    <div class="right">
-                        <button type="submit" class="sel_del">선택 항목 삭제</button>
-                    </div>
-                </div>
-                <ul id="products_list">
+            <h2>관리자 페이지 (프로그램 관리)</h2>
+            <form name="boardList" action="./admin_products_delete.php" method="post">
+                <ul id="board_list">
                     <li>
                         <span class="field1">선택</span>
                         <span class="field2">번호</span>
-                        <span class="field3">판매자</span>
+                        <span class="field3">이름</span>
                         <span class="field4">제목</span>
-                        <span class="field5">내용</span>
-                        <span class="field6">가격</span>
-                        <span class="field7">좋아요</span>
-                        <span class="field8">작성일</span>
+                        <span class="field5">대표 이미지</span>
+                        <span class="field6">작성일</span>
                     </li>
 <?php
-
     $sql = "select * from products order by num desc";
-
     $result = mysqli_query($con, $sql);
+    //var_dump($result);
     $total_record = mysqli_num_rows($result);
+    //var_dump($total_record);
     $number = $total_record;
 
     while($row = mysqli_fetch_array($result)){
         $num = $row["num"];
         $name = $row["name"];
         $title = $row["title"];
-        $subject = $row["sub"];
-        $price = number_format($row["price"]);
-        $fav = number_format($row["fav"]);
-        $regist_day = substr($row["regist_day"], 0, 8);
-        $day_array = [substr($regist_day, 0, 4), substr($regist_day, 4, 2), substr($regist_day, 6, 2)];
-        $real_day = implode('-', $day_array);
-        
-
-?>  
+        $file_copied = "./products/".$row["file_copied"];
+        $regist_day = substr($row["regist_day"], 0, 10);
+?>                    
                     <li>
-                        <span class="field1"><input type="checkbox" name="program[]" value="<?=$num?>"></span>
+                        <span class="field1"><input type="checkbox" name="unit[]" value="<?=$num?>"></span>
                         <span class="field2"><?=$number?></span>
                         <span class="field3"><?=$name?></span>
                         <span class="field4"><?=$title?></span>
-                        <span class="field5"><?=$subject?></span>
-                        <span class="field6"><?=$price?></span>
-                        <span class="field7"><?=$fav?></span>
-                        <span class="field8"><?=$real_day?></span>
+                        <span class="field5"><div class="pd_img" style="background-image:url(./<?=$file_copied?>);"></div></span>
+                        <span class="field6"><?=$regist_day?></span>
                     </li>
 <?php
         $number--;
     }
 ?>
                 </ul>
+                <button type="submit" class="sel_del">선택 항목 삭제(프로그램)</button>
             </form>
-            
+
+
         </div>
     </section>
 

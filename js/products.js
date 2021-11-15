@@ -1,4 +1,13 @@
-function check_input(){
+var oEditors = [];
+nhn.husky.EZCreator.createInIFrame({
+    oAppRef: oEditors,
+    elPlaceHolder: "detail",
+    sSkinURI: "./nse_files/SmartEditor2Skin.html",
+    fCreator: "createSEditor2"
+});
+
+
+function check_input(elClickedObj){
     if(!document.product_form.title.value){
         alert("프로그램의 타이틀을 작성하세요.");
         document.product_form.title.focus();
@@ -10,7 +19,7 @@ function check_input(){
         return;
     }
     if(!document.product_form.content.value){
-        alert("프로그램의 상세내용을 작성하세요.");
+        alert("프로그램의 간략소개를 작성하세요.");
         document.product_form.content.focus();
         return;
     }
@@ -20,4 +29,11 @@ function check_input(){
         return;
     }
     document.product_form.submit();
+
+    // 에디터의 내용이 textarea에 적용됩니다.
+    oEditors.getById["detail"].exec("UPDATE_CONTENTS_FIELD", []);
+
+    try {
+        elClickedObj.form.submit();
+    } catch(e) {}
 }

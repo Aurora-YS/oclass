@@ -5,6 +5,9 @@ create table products(
     title char(100) not null,
     sub char(150) not null,
     content mediumtext not null,
+
+    detail mediumtext not null,
+
     price int not null,
     fav int not null,
     hit int not null,

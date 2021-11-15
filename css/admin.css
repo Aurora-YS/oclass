@@ -91,6 +91,8 @@
 
 
 /*게시판 관리*/
+[name="boardList"]{padding-bottom: 60px;}
+
 #board_list, #products_list{
     padding: 20px 0;
     border-bottom: 1px solid #ccc;
@@ -148,31 +150,16 @@ button.sel_del{
 }
 button.sel_del:hover{background-color: #f00;}
 
-#products_list li span.field1{width: 50px;}
-#products_list li span.field2{width: 50px;}
-#products_list li span.field3{width: 150px;}
-#products_list li span.field4{
-    width: 200px;
-    text-align: left;
-}
-#products_list li span.field5{
-    width: calc(100% - 760px);
-    text-align: left;
-}
-#products_list li span.field6{width: 100px;}
-#products_list li span.field7{width: 80px;}
-#products_list li span.field8{width: 130px;}
 
-#sort_opt{
-    width: 100px;
-    padding: 10px;
-    border: 1px solid #555;
-    font-size: 15px;
-    border-radius: 4px;
-    margin-right: 5px;
-    -webkit-appearance: none;
-    appearance: none;
-    background: url(../img/arrow_down.png) no-repeat 90% 50%/15px auto;
-    cursor: pointer;
+#board_list li span.field5{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-#sort_opt option{}
+#board_list li span.field5 > div.pd_img{
+    width: 75%;
+    height: 120px;
+    background-size: cover;
+    background-position: 50% 50%;
+    transform: scale(0.75);
+}

@@ -7,6 +7,7 @@
     <title>프로그램 등록</title>
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/products.css">
+    <script src="./nse_files/js/HuskyEZCreator.js"></script>
 </head>
 <body>
     <header>
@@ -43,10 +44,10 @@
                     </li>
                     <li>
                         <div class="label_box">
-                            <label for="cont">상세내용</label>
+                            <label for="cont">간략 소개</label>
                         </div>
                         <div class="input_box">
-                            <textarea name="content" id="cont"></textarea>
+                            <input type="text" name="content" id="cont">
                         </div>
                     </li>
 
@@ -67,9 +68,18 @@
                             <input type="file" name="upfile" id="upload">
                         </div>
                     </li>
+
+                    <li class="smartEditor_txt">
+                        <div class="label_box">
+                            <label for="detail">상세내용</label>
+                        </div>
+                        <div class="input_box">
+                            <textarea name="detail" id="detail" class="nse_content"></textarea>
+                        </div>
+                    </li>
                 </ul>
                 <ul class="buttons">
-                    <li><button type="button" onclick="check_input();">등록하기</button></li>
+                    <li><button type="button" onclick="check_input(this);">등록하기</button></li>
                     <li><button type="button" onclick="location.href='./products_list.php'">목록</button></li>
                 </ul>
             </form>
